@@ -18,12 +18,32 @@
           </tr>
         </tbody>
       </table>
+      <%= link_to 'Add a Review', new_restaurant_review_path(@restaurant.id), class: "btn btn-primary mt-2"%>
     </div>
+  </div>
 
+  <div class="container">
     <div class="list-group">
-        <% @restaurant.reviews.each do |review| %>
-          <li class="list-group-item">
-            <small>
+      <h2>Reviews</h2>
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+            <ul class="list-group">
+              <% @restaurant.reviews.each do |review| %>
+                <li class="list-group-item">
+                  <%= review.content %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+      <%= link_to "See all restaurants", restaurants_path %>
+</div>
+       <!--  <% @restaurant.reviews.each do |review| %> -->
+
+          <!-- <li class="list-group-item">
+
               <% count = 0 %>
               <% 5.times do %>
                 <% if review.rating > count %>
@@ -33,14 +53,10 @@
                 <% end %>
                 <% count += 1 %>
               <% end %>
-            </small>
+
             <p><%= review.content %></p>
           </li>
-        <% end %>
-      </div>
+        <% end %> -->
 
 
-      <%= link_to "See all restaurants", restaurants_path %>
-    </div>
-  </div>
-</div>
+
